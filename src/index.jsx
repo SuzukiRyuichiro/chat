@@ -1,3 +1,15 @@
+const initialState = {
+  // TODO
+  channels: [],
+  messages: {
+    channel1: [],
+    channel2: [],
+    channel3: []
+  }
+  selectedChannel: "",
+  currentUser: ""
+};
+
 // external modules
 import React from 'react';
 import ReactDOM from 'react-dom';
