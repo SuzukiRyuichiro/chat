@@ -1,11 +1,6 @@
 const initialState = {
   // TODO
-  channels: [],
-  messages: {
-    channel1: [],
-    channel2: [],
-    channel3: []
-  }
+  messages: [],
   selectedChannel: "",
   currentUser: ""
 };
@@ -19,15 +14,16 @@ import { createStore, combineReducers } from 'redux';
 // internal modules
 import App from './components/app';
 import '../assets/stylesheets/application.scss';
+import messagesReducer from './reducers/messages_reducer'
 
 // State and reducers
 const reducers = combineReducers({
-  changeMe: (state = null, action) => state
+  messages: messagesReducer
 });
 
 // render an instance of the component in the DOM
 ReactDOM.render(
-  <Provider store={createStore(reducers)}>
+  <Provider store={createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())}>
     <App />
   </Provider>,
   document.getElementById('root')
