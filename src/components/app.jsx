@@ -1,9 +1,10 @@
 import React from 'react';
+import Message from './message'
 
 const App = () => {
   return (
     <div className="app">
-      <p>React + Redux starter</p>
+      <Message />
     </div>
   );
 };
