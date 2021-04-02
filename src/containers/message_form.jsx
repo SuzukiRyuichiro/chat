@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import { sendMessage } from '../actions'
 
-export default class MessageForm extends React.Component {
+class MessageForm extends React.Component {
   constructor(props){
     super(props);
     console.log('constructoring');
@@ -15,8 +15,7 @@ export default class MessageForm extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const input = document.querySelector('.form-input');
-    sendMessage('general', 'scooter', input.value);
-    // here, i have to dispatch an action that changes redux state
+    this.props.sendMessage('general', 'scooter', input.value);
   }
 
   handleChange = (event) => {
@@ -37,3 +36,12 @@ export default class MessageForm extends React.Component {
     )
   }
 }
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    { sendMessage: sendMessage },
+    dispatch
+  );
+}
+
+export default connect(null, mapDispatchToProps)(MessageForm);

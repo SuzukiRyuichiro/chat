@@ -12,3 +12,8 @@ export function sendMessage(channel, author, content) {
     payload: {channel: channel, author: author, content: content}
   }
 }
+
+
+const sendApiRequest = () => {
+
+}
