@@ -1,8 +1,8 @@
 const initialState = {
-  // TODO
   messages: [],
-  selectedChannel: "",
-  currentUser: ""
+  channels: [ 'general', 'react', 'paris' ],
+  currentUser: `anonymous${Math.floor(10 + (Math.random() * 90))}` || prompt("What is your username?") ,
+  selectedChannel: 'general'
 };
 
 // external modules
@@ -22,6 +22,7 @@ import messagesReducer from './reducers/messages_reducer'
 const reducers = combineReducers({
   messages: messagesReducer
 });
+
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const middlewares = composeEnhancers(applyMiddleware(reduxPromise, logger));
