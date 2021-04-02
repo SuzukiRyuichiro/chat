@@ -10,10 +10,9 @@ class MessageList extends React.Component {
       fetch('https://wagon-chat.herokuapp.com/general/messages')
     .then(response => response.json())
     .then(data => this.props.setMessages(data.messages));
-    console.log('fetched');
   }
-
-    const fetchMessageId = setInterval(fetchMessage, 3000);
+    fetchMessage();
+    const fetchMessageId = setInterval(fetchMessage, 1000);
   }
 
   componentWillUnmount() {
