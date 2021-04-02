@@ -6,9 +6,18 @@ import { setMessages } from '../actions'
 
 class MessageList extends React.Component {
   componentWillMount() {
-    fetch('https://wagon-chat.herokuapp.com/general/messages')
+    const fetchMessage = () => {
+      fetch('https://wagon-chat.herokuapp.com/general/messages')
     .then(response => response.json())
     .then(data => this.props.setMessages(data.messages));
+    console.log('fetched');
+  }
+
+    const fetchMessageId = setInterval(fetchMessage, 3000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(fetchMessageId);
   }
 
   render() {

@@ -10,7 +10,7 @@ export function sendMessage(channel, author, content) {
   sendApiRequest(channel, author, content);
   return {
     type: 'SEND_MESSAGE',
-    payload: {channel: channel, author: author, content: content}
+    payload: { author: author, content: content, key: content }
   }
 }
 

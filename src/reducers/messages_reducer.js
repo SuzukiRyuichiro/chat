@@ -9,7 +9,7 @@ export default function(state = [], action) {
     case 'SET_MESSAGES':
       return action.payload;
     case 'SEND_MESSAGE':
-      state.push(action.payload)
+      state.push(test)
       return state;
     default:
       return state;
