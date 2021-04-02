@@ -4,9 +4,8 @@ import MessageList from '../containers/message_list'
 const App = () => {
   return (
     <div className="app">
-      <div className="left-screen">
-        <div className="bg-primary">
-        </div>
+      <div className="left-screen bg-primary sticky-top">
+        <h1>hey</h1>
       </div>
       <div className="right-screen">
         <MessageList />

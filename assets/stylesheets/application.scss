@@ -4,16 +4,17 @@ body {
 
 .app {
   display: flex;
+  height: 100vh;
 
   .left-screen {
-    flex: 0 0 40%;
+    flex: 0 0 20%;
   }
 
   .right-screen {
-    flex: 0 0 60%;
+    flex: 0 0 80%;
+    overflow-y: scroll;
 
     .message-list {
-      overflow-y: scroll;
     }
   }
 }
