@@ -1,10 +1,10 @@
 import React from 'react';
-import Message from './message'
+import MessageList from '../containers/message_list'
 
 const App = () => {
   return (
     <div className="app">
-      <Message />
+      <MessageList />
     </div>
   );
 };
