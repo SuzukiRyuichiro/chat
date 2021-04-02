@@ -1,5 +1,6 @@
 import React from 'react';
 import MessageList from '../containers/message_list'
+import MessageForm from '../containers/message_form'
 
 const App = () => {
   return (
@@ -9,6 +10,7 @@ const App = () => {
       </div>
       <div className="right-screen">
         <MessageList />
+        <MessageForm />
       </div>
     </div>
   );
