@@ -1,11 +1,19 @@
 body {
   font-family: Helvetica;
 }
-.app {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
 
-.message-list {
-  overflow-y: scroll;
+.app {
+  display: flex;
+
+  .left-screen {
+    flex: 0 0 40%;
+  }
+
+  .right-screen {
+    flex: 0 0 60%;
+
+    .message-list {
+      overflow-y: scroll;
+    }
+  }
 }
