@@ -6,21 +6,29 @@ import { sendMessage } from '../actions'
 class MessageForm extends React.Component {
   constructor(props){
     super(props);
-    console.log('constructoring');
+
     this.state = {
-      value: ''
+      nameValue: '',
+      contentValue: ''
     };
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const input = document.querySelector('.form-input');
-    this.props.sendMessage('general', 'scooter', input.value);
+    const name = document.querySelector('#name');
+    const content = document.querySelector('#content');
+    this.props.sendMessage('general', name.value, content.value);
   }
 
-  handleChange = (event) => {
+  handleNameChange = (event) => {
     this.setState({
-      value: event.target.value
+      nameValue: event.target.value
+    });
+  }
+
+  handleContentChange = (event) => {
+    this.setState({
+      contentValue: event.target.value
     });
   }
 
@@ -29,7 +37,11 @@ class MessageForm extends React.Component {
       <form onSubmit={this.handleSubmit} className="message-form">
         <label>
           Name:
-          <input type="text" className="form-input" value={this.state.value} onChange={this.handleChange} />
+          <input type="text" id="name" className="form-input" value={this.state.nameValue} onChange={this.handleNameChange} />
+        </label>
+        <label>
+          Message:
+          <input type="text" id="content" className="form-input" value={this.state.contentValue} onChange={this.handleContentChange} />
         </label>
         <input type="submit" value="Submit" />
       </form>
