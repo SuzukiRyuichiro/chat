@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux';
+import { sendMessage } from '../actions'
 
 export default class MessageForm extends React.Component {
   constructor(props){
@@ -12,6 +15,8 @@ export default class MessageForm extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const input = document.querySelector('.form-input');
+    sendMessage('general', 'scooter', input.value);
+    // here, i have to dispatch an action that changes redux state
   }
 
   handleChange = (event) => {

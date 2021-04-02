@@ -10,8 +10,8 @@ const App = () => {
       </div>
       <div className="right-screen">
         <MessageList />
-        <MessageForm />
       </div>
+      <MessageForm />
     </div>
   );
 };

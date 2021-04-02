@@ -6,7 +6,7 @@ export function setMessages(messages) {
   }
 }
 
-export function createMessage(channel, author, content) {
+export function sendMessage(channel, author, content) {
   return {
     type: 'SEND_MESSAGE',
     payload: {channel: channel, author: author, content: content}
