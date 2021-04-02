@@ -5,19 +5,19 @@ export default class MessageForm extends React.Component {
     super(props);
     console.log('constructoring');
     this.state = {
-      value: 'hello'
+      value: ''
     };
   }
 
-  handleSubmit = () => {
-
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const input = document.querySelector('.form-input');
   }
 
   handleChange = (event) => {
-    console.log(event.target.value);
     this.setState({
       value: event.target.value
-    })
+    });
   }
 
   render(){
@@ -25,7 +25,7 @@ export default class MessageForm extends React.Component {
       <form onSubmit={this.handleSubmit} className="message-form">
         <label>
           Name:
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
+          <input type="text" className="form-input" value={this.state.value} onChange={this.handleChange} />
         </label>
         <input type="submit" value="Submit" />
       </form>
