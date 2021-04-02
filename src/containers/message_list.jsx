@@ -13,7 +13,7 @@ class MessageList extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className="message-list">
         {this.props.messages.map(message => <Message message={message} key={message.created_at} />)}
       </div>
     )
