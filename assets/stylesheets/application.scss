@@ -1,12 +1,12 @@
 body {
-  font-family: Helvetica;
+  font-family: 'Lato', sans-serif;
 }
 
 .app {
   display: grid;
   height: 100vh;
-  grid-template-rows: 1fr fit-content(10%);
-  grid-template-columns: fit-content(30%) 1fr 1fr 1fr;
+  grid-template-rows: 1fr fit-content(5%);
+  grid-template-columns: 0.5fr 1fr 1fr 1fr;
 
   .left-screen {
     grid-row: 1/3
