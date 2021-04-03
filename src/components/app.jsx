@@ -6,7 +6,8 @@ const App = () => {
   return (
     <div className="app">
       <div className="left-screen bg-success sticky-top">
-        <h1>hey</h1>
+        <h2>React-Redux Chat</h2>
+        <ChannelList />
       </div>
       <div className="right-screen">
         <MessageList />
