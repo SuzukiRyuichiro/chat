@@ -6,12 +6,14 @@ import { setChannels } from '../actions'
 
 class ChannelList extends React.Component {
   componentWillMount() {
+    this.props.setChannels();
   }
 
 
   render() {
     return(
       <div className="channel-list">
+        {this.props.channels.map(channel => <h1>{channel.name}</h1>)}
       </div>
     )
   }
@@ -20,7 +22,7 @@ class ChannelList extends React.Component {
 
 function mapReduxStateToProps(state) {
   return {
-    channels: state.channel
+    channels: state.channels
   };
 }
 

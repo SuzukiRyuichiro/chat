@@ -6,9 +6,6 @@ export function setMessages(messages) {
   }
 }
 
-const scroller = () => {
-}
-
 export function sendMessage(channel, author, content) {
   sendApiRequest(channel, author, content);
   setTimeout(function(){document.querySelector('.message-list').scrollIntoView({block: "end", behavior: "smooth"})}, 1500);
@@ -17,7 +14,6 @@ export function sendMessage(channel, author, content) {
     payload: { author: author, content: content, key: content }
   }
 }
-
 
 const sendApiRequest = (channel, author, content) => {
   const body = { author: author, content: content };
@@ -29,4 +25,11 @@ const sendApiRequest = (channel, author, content) => {
     },
     body: JSON.stringify(body)
   }).then(r => r.json());
+}
+
+export function setChannels(channels){
+  return {
+    type: 'SET_CHANNELS',
+    payload: channels
+  }
 }

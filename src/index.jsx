@@ -16,11 +16,13 @@ import reduxPromise from 'redux-promise';
 // internal modules
 import App from './components/app';
 import '../assets/stylesheets/application.scss';
-import messagesReducer from './reducers/messages_reducer'
+import messagesReducer from './reducers/messages_reducer';
+import channelsReducer from './reducers/channels_reducer';
 
 // State and reducers
 const reducers = combineReducers({
-  messages: messagesReducer
+  messages: messagesReducer,
+  channels: channelsReducer
 });
 
 
