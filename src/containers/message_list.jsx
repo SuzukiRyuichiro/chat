@@ -7,10 +7,10 @@ import { setMessages } from '../actions'
 class MessageList extends React.Component {
   componentWillMount() {
     const fetchMessage = () => {
-      fetch('https://wagon-chat.herokuapp.com/general/messages')
+    fetch('https://scooter-messages.herokuapp.com/api/v1/channels/tokyo-bilinguals/messages' )
     .then(response => response.json())
     .then(data => this.props.setMessages(data.messages));
-  }
+    }
     fetchMessage();
     const fetchMessageId = setInterval(fetchMessage, 1000);
   }

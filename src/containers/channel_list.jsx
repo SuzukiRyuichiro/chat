@@ -13,7 +13,7 @@ class ChannelList extends React.Component {
   render() {
     return(
       <div className="channel-list">
-        {this.props.channels.map(channel => <h1>{channel.name}</h1>)}
+        {this.props.channels.map(channel => <h1 key={channel.name}>{channel.name}</h1>)}
       </div>
     )
   }
