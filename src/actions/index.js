@@ -17,7 +17,7 @@ export function sendMessage(channel, author, content) {
 
 const sendApiRequest = (channel, author, content) => {
   const body = { author: author, content: content };
-  const promise = fetch(`https://wagon-chat.herokuapp.com/${channel}/messages`, {
+  const promise = fetch(`https://scooter-messages.herokuapp.com/api/v1/channels/${channel}/messages`, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',

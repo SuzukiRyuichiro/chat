@@ -17,7 +17,7 @@ class MessageForm extends React.Component {
     event.preventDefault();
     const name = document.querySelector('#name');
     const content = document.querySelector('#content');
-    this.props.sendMessage('general', name.value, content.value);
+    this.props.sendMessage('tokyo-bilinguals', name.value, content.value);
   }
 
   handleNameChange = (event) => {
