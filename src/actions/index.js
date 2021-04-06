@@ -33,3 +33,10 @@ export function setChannels(channels){
     payload: channels
   }
 }
+
+export function setSelectedChannel(channel){
+  return {
+    type: 'SET_SELECTED_CHANNEL',
+    payload: channel
+  }
+}

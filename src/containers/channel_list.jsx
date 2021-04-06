@@ -2,7 +2,7 @@ import React from 'react';
 import Message from '../components/message'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { setChannels } from '../actions'
+import { setChannels, setSelectedChannel } from '../actions'
 
 class ChannelList extends React.Component {
   componentWillMount() {
@@ -27,13 +27,15 @@ class ChannelList extends React.Component {
 
 function mapReduxStateToProps(state) {
   return {
-    channels: state.channels
+    channels: state.channels,
+    selectedChannel: state.selectedChannel
   };
 }
 
 function mapDispatchToProps(dispatch){
   return bindActionCreators(
-    {setChannels: setChannels},
+    { setChannels: setChannels,
+      setSelectedChannel: setSelectedChannel },
     dispatch
   );
 }
