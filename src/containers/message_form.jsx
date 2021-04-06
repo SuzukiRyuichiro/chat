@@ -56,4 +56,8 @@ function mapDispatchToProps(dispatch) {
   );
 }
 
+function mapReduxStateToProps(){
+
+}
+
 export default connect(null, mapDispatchToProps)(MessageForm);

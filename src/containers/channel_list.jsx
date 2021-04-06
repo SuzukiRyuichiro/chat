@@ -6,7 +6,12 @@ import { setChannels } from '../actions'
 
 class ChannelList extends React.Component {
   componentWillMount() {
-    this.props.setChannels();
+    const fetchChannels = () => {
+    fetch('https://scooter-messages.herokuapp.com/api/v1/channels' )
+    .then(response => response.json())
+    .then(data => this.props.setChannels(data.channels));
+    }
+    fetchChannels();
   }
 
 
