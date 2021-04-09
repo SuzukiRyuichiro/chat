@@ -42,7 +42,11 @@ export function setSelectedChannel(channel){
 }
 
 export function createChannel(name){
-
+  sendChannelApiRequest(name)
+  return {
+    type: 'CREATE_CHANNEL',
+    payload: { name: name }
+  }
 }
 
 const sendChannelApiRequest = (name) => {

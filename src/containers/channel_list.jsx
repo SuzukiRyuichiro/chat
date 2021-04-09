@@ -13,6 +13,11 @@ class ChannelList extends React.Component {
     .then(data => this.props.setChannels(data.channels));
     }
     fetchChannels();
+    const fetchChannelsId = setInterval(fetchChannels, 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(fetchChannelsId);
   }
 
   handleClick = (event) => {
