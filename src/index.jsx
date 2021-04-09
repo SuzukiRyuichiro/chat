@@ -1,10 +1,3 @@
-const initialState = {
-  messages: [],
-  channels: [ 'general', 'react', 'paris' ],
-  currentUser: `anonymous${Math.floor(10 + (Math.random() * 90))}` || prompt("What is your username?") ,
-  selectedChannel: 'general'
-};
-
 // external modules
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -28,12 +21,12 @@ const reducers = combineReducers({
 });
 
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const middlewares = composeEnhancers(applyMiddleware(reduxPromise, logger));
+// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+// const middlewares = composeEnhancers(applyMiddleware(reduxPromise, logger));
 
 // render an instance of the component in the DOM
 ReactDOM.render(
-  <Provider store={createStore(reducers, {}, middlewares)}>
+  <Provider store={createStore(reducers)}>
     <App />
   </Provider>,
   document.getElementById('root')
