@@ -7,7 +7,7 @@ import { setMessages } from '../actions'
 class MessageList extends React.Component {
   componentWillMount() {
     const fetchMessage = () => {
-    fetch(`https://scooter-messages.herokuapp.com/api/v1/channels/${this.props.selectedChannel.name || 'tokyo-bilinguals'}/messages` )
+    fetch(`https://scooter-messages.herokuapp.com/api/v1/channels/${this.props.selectedChannel.name || 'tokyo-bilinguals' }/messages` )
     .then(response => response.json())
     .then(data => this.props.setMessages(data.messages));
     }
@@ -31,7 +31,8 @@ class MessageList extends React.Component {
 
 function mapReduxStateToProps(state) {
   return {
-    messages: state.messages
+    messages: state.messages,
+    selectedChannel: state.selectedChannel
   };
 }
 

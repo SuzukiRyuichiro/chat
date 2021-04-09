@@ -18,11 +18,13 @@ import App from './components/app';
 import '../assets/stylesheets/application.scss';
 import messagesReducer from './reducers/messages_reducer';
 import channelsReducer from './reducers/channels_reducer';
+import selectedChannelReducer from './reducers/selected_channel_reducer';
 
 // State and reducers
 const reducers = combineReducers({
   messages: messagesReducer,
-  channels: channelsReducer
+  channels: channelsReducer,
+  selectedChannel: selectedChannelReducer
 });
 
 

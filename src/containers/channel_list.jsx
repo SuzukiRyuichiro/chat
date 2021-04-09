@@ -6,6 +6,7 @@ import { setChannels, setSelectedChannel } from '../actions'
 
 class ChannelList extends React.Component {
   componentWillMount() {
+    // this will load all available channels from the API
     const fetchChannels = () => {
     fetch('https://scooter-messages.herokuapp.com/api/v1/channels' )
     .then(response => response.json())
@@ -14,10 +15,17 @@ class ChannelList extends React.Component {
     fetchChannels();
   }
 
+  handleClick = (event) => {
+    event.persist();
+    this.props.setSelectedChannel(
+      fetch('https://scooter-messages.herokuapp.com/api/v1/channels' ).then(response => response.json()).then(data => data.channels.filter(channel => channel.name == event.target.innerText)[0])
+    );
+  }
+
 
   render() {
     return(
-      <div className="channel-list">
+      <div className="channel-list" onClick={this.handleClick}>
         {this.props.channels.map(channel => <h1 key={channel.name}>{channel.name}</h1>)}
       </div>
     )
