@@ -8,7 +8,7 @@ const App = () => {
   return (
     <div className="app">
       <div className="left-screen bg-success sticky-top">
-        <h2>React-Redux Chat</h2>
+        <h2><i class="devicon-react-original"></i> <i class="devicon-redux-original"></i> Chat</h2>
         <ChannelList />
         <ChannelForm />
       </div>
