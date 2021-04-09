@@ -1,4 +1,4 @@
-export default function (state=[], action) {
+export default function (state=[{name:'tokyo'}], action) {
   switch(action.type){
     case 'SET_CHANNELS':
       return action.payload;

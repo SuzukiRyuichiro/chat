@@ -22,6 +22,7 @@ class MessageList extends React.Component {
   render() {
     return(
       <div className="message-list">
+        <h3>{this.props.selectedChannel.name}</h3>
         {this.props.messages.map(message => <Message message={message} key={message.created_at} />)}
       </div>
     )
