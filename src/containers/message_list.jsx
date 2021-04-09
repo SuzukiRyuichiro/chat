@@ -20,6 +20,7 @@ class MessageList extends React.Component {
   }
 
   render() {
+    console.log('rendering');
     return(
       <div className="message-list">
         <h3>{this.props.selectedChannel.name}</h3>
