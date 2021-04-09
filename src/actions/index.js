@@ -7,7 +7,7 @@ export function setMessages(messages) {
 }
 
 export function sendMessage(channel, author, content) {
-  sendApiRequest(channel, author, content);
+  sendMessageApiRequest(channel, author, content);
   setTimeout(function(){document.querySelector('.message-list').scrollIntoView({block: "end", behavior: "smooth"})}, 1500);
   return {
     type: 'SEND_MESSAGE',
@@ -15,7 +15,7 @@ export function sendMessage(channel, author, content) {
   }
 }
 
-const sendApiRequest = (channel, author, content) => {
+const sendMessageApiRequest = (channel, author, content) => {
   const body = { author: author, content: content };
   const promise = fetch(`https://scooter-messages.herokuapp.com/api/v1/channels/${channel}/messages`, {
     method: 'POST',
@@ -39,4 +39,20 @@ export function setSelectedChannel(channel){
     type: 'SET_SELECTED_CHANNEL',
     payload: channel
   }
+}
+
+export function createChannel(name){
+
+}
+
+const sendChannelApiRequest = (name) => {
+  const body = { name: name };
+  const promise = fetch(`https://scooter-messages.herokuapp.com/api/v1/channels`, {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(body)
+  }).then(r => r.json());
 }

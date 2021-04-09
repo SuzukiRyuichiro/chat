@@ -2,6 +2,7 @@ import React from 'react';
 import MessageList from '../containers/message_list'
 import ChannelList from '../containers/channel_list'
 import MessageForm from '../containers/message_form'
+import ChannelForm from '../containers/channel_form'
 
 const App = () => {
   return (
@@ -9,6 +10,7 @@ const App = () => {
       <div className="left-screen bg-success sticky-top">
         <h2>React-Redux Chat</h2>
         <ChannelList />
+        <ChannelForm />
       </div>
       <div className="right-screen">
         <MessageList />
