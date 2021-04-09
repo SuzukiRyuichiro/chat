@@ -17,7 +17,7 @@ class MessageForm extends React.Component {
     event.preventDefault();
     const name = document.querySelector('#name');
     const content = document.querySelector('#content');
-    this.props.sendMessage('tokyo-bilinguals', name.value, content.value);
+    this.props.sendMessage(this.props.selectedChannel.name, name.value, content.value);
   }
 
   handleNameChange = (event) => {
@@ -56,8 +56,10 @@ function mapDispatchToProps(dispatch) {
   );
 }
 
-function mapReduxStateToProps(){
-
+function mapReduxStateToProps(state){
+  return {
+    selectedChannel: state.selectedChannel
+  }
 }
 
-export default connect(null, mapDispatchToProps)(MessageForm);
+export default connect(mapReduxStateToProps, mapDispatchToProps)(MessageForm);
