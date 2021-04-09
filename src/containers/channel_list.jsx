@@ -18,7 +18,7 @@ class ChannelList extends React.Component {
   handleClick = (event) => {
     event.persist();
     this.props.setSelectedChannel(
-      fetch('https://scooter-messages.herokuapp.com/api/v1/channels' ).then(response => response.json()).then(data => data.channels.filter(channel => channel.name == event.target.innerText)[0])
+      fetch('https://scooter-messages.herokuapp.com/api/v1/channels' ).then(response => response.json()).then(data => data.channels.filter(channel => channel.name == event.target.innerText)[0] || this.props.selectedChannel)
     );
   }
 
@@ -26,7 +26,7 @@ class ChannelList extends React.Component {
   render() {
     return(
       <div className="channel-list" onClick={this.handleClick}>
-        {this.props.channels.map(channel => <h1 key={channel.name}>{channel.name}</h1>)}
+        {this.props.channels.map(channel => <h4 key={channel.name}>{channel.name}</h4>)}
       </div>
     )
   }
