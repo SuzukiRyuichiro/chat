@@ -22,6 +22,7 @@ class ChannelList extends React.Component {
 
   handleClick = (event) => {
     event.persist();
+    // it will change the selected channel on Redux state tree on click
     this.props.setSelectedChannel(
       fetch('https://scooter-messages.herokuapp.com/api/v1/channels' ).then(response => response.json()).then(data => data.channels.filter(channel => channel.name == event.target.innerText)[0] || this.props.selectedChannel)
     );

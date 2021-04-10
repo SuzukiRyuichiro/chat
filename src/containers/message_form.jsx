@@ -18,6 +18,7 @@ class MessageForm extends React.Component {
     const name = document.querySelector('#name');
     const content = document.querySelector('#content');
     this.props.sendMessage(this.props.selectedChannel.name, name.value, content.value);
+    this.setState({ contentValue: '' }); // Reset message input
   }
 
   handleNameChange = (event) => {
