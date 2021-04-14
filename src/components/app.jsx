@@ -7,15 +7,17 @@ import ChannelForm from '../containers/channel_form'
 const App = () => {
   return (
     <div className="app">
-      <div className="left-screen bg-success sticky-top">
+      <div className="left-screen sticky-top">
         <h2><i className="devicon-react-original"></i> <i className="devicon-redux-original"></i> Chat</h2>
         <ChannelList />
         <ChannelForm />
       </div>
       <div className="right-screen">
-        <MessageList />
+        <div className="right-screen-inner">
+          <MessageList />
+        </div>
+        <MessageForm />
       </div>
-      <MessageForm />
     </div>
   );
 };
