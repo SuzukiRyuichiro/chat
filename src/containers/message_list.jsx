@@ -7,7 +7,7 @@ import { setMessages } from '../actions'
 class MessageList extends React.Component {
   componentWillMount() {
     const fetchMessage = () => {
-    fetch(`https://scooter-messages.herokuapp.com/api/v1/channels/${this.props.selectedChannel.name }/messages` )
+    fetch(`https://scooter-messages.herokuapp.com/api/v1/channels/${this.props.selectedChannel}/messages` )
     .then(response => response.json())
     .then(data => this.props.setMessages(data.messages));
     }
@@ -22,8 +22,8 @@ class MessageList extends React.Component {
   render() {
     return(
       <div className="message-list">
-        <h3>{this.props.selectedChannel.name}</h3>
-        {this.props.messages.map(message => <Message message={message} key={message.created_at} />)}
+        <h3>{this.props.selectedChannel}</h3>
+        {this.props.messages.map(message => <Message message={message} key={message} />)}
       </div>
     )
   }

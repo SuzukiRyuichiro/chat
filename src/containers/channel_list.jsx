@@ -13,7 +13,7 @@ class ChannelList extends React.Component {
     .then(data => this.props.setChannels(data.channels));
     }
     fetchChannels();
-    const fetchChannelsId = setInterval(fetchChannels, 1000);
+    const fetchChannelsId = setInterval(fetchChannels, 5000);
   }
 
   componentWillUnmount() {
@@ -23,16 +23,14 @@ class ChannelList extends React.Component {
   handleClick = (event) => {
     event.persist();
     // it will change the selected channel on Redux state tree on click
-    this.props.setSelectedChannel(
-      fetch('https://scooter-messages.herokuapp.com/api/v1/channels' ).then(response => response.json()).then(data => data.channels.filter(channel => channel.name == event.target.innerText)[0] || this.props.selectedChannel)
-    );
+    this.props.setSelectedChannel(event.target.innerText);
   }
 
 
   render() {
     return(
       <div className="channel-list" onClick={this.handleClick}>
-        {this.props.channels.map(channel => <h4 className={this.props.selectedChannel.name === channel.name ? 'active' : ''} key={channel.name}>{channel.name}</h4>)}
+        {this.props.channels.map(channel => <h4 className={this.props.selectedChannel === channel.name ? 'active' : ''} key={channel.name}>{channel.name}</h4>)}
       </div>
     )
   }

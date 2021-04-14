@@ -1,6 +1,6 @@
 export default function(state, action) {
   if(state === undefined){
-    return [];
+    return [{author: "No one", content: "No message here yet"}];
   }
   switch (action.type) {
     case 'SET_MESSAGES':
