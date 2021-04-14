@@ -2,7 +2,7 @@ export default function (state, action) {
   if(state === undefined){
     return [];
   }
-  switch(action.type){
+  switch (action.type) {
     case 'SET_CHANNELS':
       return action.payload;
     case 'CREATE_CHANNEL':

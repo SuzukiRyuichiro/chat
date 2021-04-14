@@ -5,28 +5,20 @@ import { connect } from 'react-redux';
 import { setChannels, setSelectedChannel } from '../actions'
 
 class ChannelList extends React.Component {
+  fetchChannels = () => {
+    fetch('https://scooter-messages.herokuapp.com/api/v1/channels')
+    .then(response => response.json())
+    .then(data => this.props.setChannels(data.channels))
+  }
+
   componentWillMount() {
     // this will load all available channels from the API
-    const fetchChannels = () => {
-    fetch('https://scooter-messages.herokuapp.com/api/v1/channels' )
-    .then(response => response.json())
-    .then(data => this.props.setChannels(data.channels));
-    }
-    fetchChannels();
-    const fetchChannelsId = setInterval(fetchChannels, 10000);
+    this.fetchChannels();
+    const fetchChannelsId = setInterval(this.fetchChannels, 20000);
   }
 
   componentWillUnmount() {
     clearInterval(fetchChannelsId);
-  }
-
-  componentWillUpdate() {
-    const fetchChannels = () => {
-    fetch('https://scooter-messages.herokuapp.com/api/v1/channels' )
-    .then(response => response.json())
-    .then(data => this.props.setChannels(data.channels));
-    }
-    fetchChannels();
   }
 
   handleClick = (event) => {
@@ -37,6 +29,7 @@ class ChannelList extends React.Component {
 
 
   render() {
+    console.log('channel');
     return(
       <div className="channel-list" onClick={this.handleClick}>
         {this.props.channels.map(channel => <h4 className={this.props.selectedChannel === channel.name ? 'active' : ''} key={channel.name}>{channel.name}</h4>)}

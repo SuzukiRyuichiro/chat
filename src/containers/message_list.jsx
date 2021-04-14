@@ -12,7 +12,7 @@ class MessageList extends React.Component {
     .then(data => this.props.setMessages(data.messages));
     }
     fetchMessage();
-    const fetchMessageId = setInterval(fetchMessage, 1000);
+    const fetchMessageId = setInterval(fetchMessage, 100000);
   }
 
   componentWillUnmount() {
@@ -28,7 +28,7 @@ class MessageList extends React.Component {
           <div className="channel-name">
             <h3>{this.props.selectedChannel}</h3>
           </div>
-          {this.props.messages.map(message => <Message message={message} key={message.content || message.created_at} />)}
+          {this.props.messages.map(message => <Message message={message} key={Math.random()} />)}
         </div>
       )
     } else {
