@@ -13,7 +13,7 @@ class ChannelList extends React.Component {
     .then(data => this.props.setChannels(data.channels));
     }
     fetchChannels();
-    const fetchChannelsId = setInterval(fetchChannels, 5000);
+    const fetchChannelsId = setInterval(fetchChannels, 10000);
   }
 
   componentWillUnmount() {
@@ -23,12 +23,12 @@ class ChannelList extends React.Component {
   handleClick = (event) => {
     event.persist();
     // it will change the selected channel on Redux state tree on click
-    console.log(event.target);
-    this.props.setSelectedChannel(event.target.innerText);
+    return event.target.className !== 'channel-list' ? this.props.setSelectedChannel(event.target.innerText) : this.props.setSelectedChannel(null);
   }
 
 
   render() {
+    console.log('rerendering channellist');
     return(
       <div className="channel-list" onClick={this.handleClick}>
         {this.props.channels.map(channel => <h4 className={this.props.selectedChannel === channel.name ? 'active' : ''} key={channel.name}>{channel.name}</h4>)}

@@ -17,9 +17,6 @@ class ChannelForm extends React.Component {
     const name = document.querySelector('#channelName');
     this.props.createChannel(name.value);
     this.setState({nameValue: ''});
-    fetch('https://scooter-messages.herokuapp.com/api/v1/channels' )
-    .then(response => response.json())
-    .then(data => this.props.setChannels(data.channels));
   }
 
   handleNameChange = (event) => {

@@ -22,7 +22,6 @@ class MessageList extends React.Component {
   render() {
     let messageExists = (this.props.messages.length > 0);
     let channelSelected = this.props.selectedChannel;
-    console.log(channelSelected);
     if(messageExists){　// if message is there (which means channel is selected as well)
       return(
         <div className="message-list">
@@ -35,7 +34,7 @@ class MessageList extends React.Component {
         return(
           <div className="message-list">
             <h3>{this.props.selectedChannel}</h3>
-            <p>There is no message in this channel</p>
+            <p>There is no message in this {this.props.selectedChannel}</p>
           </div>
         )
       } else {
