@@ -1,11 +1,13 @@
-# redux-boilerplate
+# React-Redux Chat
+This is a open to everyone chat application
 
-Simple React + Redux starter with the following config:
+## How to use
+Go to [this page](https://suzukiryuichiro.github.io/chat/) and start chatting!
 
-- React, ReactDOM
-- Redux, React-Redux
-- Webpack 3
-- Babel with es2015 and react presets
-- Bootstrap (css only, loaded from a cdn in `index.html`)
-- work with `.js` or `.jsx` files
-- main `application.scss` stylesheet is imported in `index.js` as a module to enjoy hot reloading
+## How this works
+This application utilizes [Message API](https://github.com/SuzukiRyuichiro/message_api).
+
+## How to run locally
+clone the repo then
+```yarn install```
+then listen to localhost8080
