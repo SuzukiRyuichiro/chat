@@ -1,4 +1,5 @@
 # React-Redux Chat
+![screenshot](./screenshots/chat1.jpg)
 This is a open to everyone chat application
 
 ## How to use
