@@ -14,7 +14,8 @@ class ChannelList extends React.Component {
   componentWillMount() {
     // this will load all available channels from the API
     this.fetchChannels();
-    const fetchChannelsId = setInterval(this.fetchChannels, 20000);
+    console.log("Component will mount");
+    const fetchChannelsId = setInterval(this.fetchChannels, 1000);
   }
 
   componentWillUnmount() {

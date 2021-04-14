@@ -5,14 +5,15 @@ import { connect } from 'react-redux';
 import { setMessages } from '../actions'
 
 class MessageList extends React.Component {
-  componentWillMount() {
-    const fetchMessage = () => {
+  fetchMessage = () => {
     fetch(`https://scooter-messages.herokuapp.com/api/v1/channels/${this.props.selectedChannel}/messages` )
     .then(response => response.json())
     .then(data => this.props.setMessages(data.messages));
-    }
-    fetchMessage();
-    const fetchMessageId = setInterval(fetchMessage, 100000);
+  }
+
+
+  componentWillMount() {
+    const fetchMessageId = setInterval(this.fetchMessage, 1000);
   }
 
   componentWillUnmount() {
