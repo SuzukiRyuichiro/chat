@@ -23,6 +23,12 @@ body {
     grid-column: 2/5;
     overflow-y: scroll;
 
+    .channel-name{
+      position: sticky;
+      background-color: white;
+      top: 0px;
+    }
+
     .message {
       .created_at {
         margin-left: 0.1rem;
