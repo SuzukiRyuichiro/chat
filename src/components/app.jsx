@@ -8,7 +8,9 @@ const App = () => {
   return (
     <div className="app">
       <div className="left-screen sticky-top">
-        <h2><i className="devicon-react-original"></i> <i className="devicon-redux-original"></i> Chat</h2>
+        <div className="py-2 border-bottom">
+          <h2><i className="devicon-react-original"></i> <i className="devicon-redux-original"></i> Chat</h2>
+        </div>
         <ChannelList />
         <ChannelForm />
       </div>

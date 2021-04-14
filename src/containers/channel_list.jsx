@@ -32,7 +32,7 @@ class ChannelList extends React.Component {
   render() {
     console.log('channel');
     return(
-      <div className="channel-list" onClick={this.handleClick}>
+      <div className="channel-list mt-2" onClick={this.handleClick}>
         {this.props.channels.map(channel => <h4 className={this.props.selectedChannel === channel.name ? 'active' : ''} key={channel.name}>{channel.name}</h4>)}
       </div>
     )
