@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
-import { createChannel } from '../actions'
+import { createChannel, setChannels } from '../actions'
 
 class ChannelForm extends React.Component {
   constructor(props){
@@ -16,6 +16,10 @@ class ChannelForm extends React.Component {
     event.preventDefault();
     const name = document.querySelector('#channelName');
     this.props.createChannel(name.value);
+    this.setState({nameValue: ''});
+    fetch('https://scooter-messages.herokuapp.com/api/v1/channels' )
+    .then(response => response.json())
+    .then(data => this.props.setChannels(data.channels));
   }
 
   handleNameChange = (event) => {
@@ -40,7 +44,8 @@ class ChannelForm extends React.Component {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-    { createChannel: createChannel },
+    { createChannel: createChannel,
+      setChannels: setChannels },
     dispatch
   );
 }

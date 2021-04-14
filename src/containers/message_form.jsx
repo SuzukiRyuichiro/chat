@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
-import { sendMessage } from '../actions'
+import { sendMessage, setMessages } from '../actions'
 
 class MessageForm extends React.Component {
   constructor(props){
@@ -19,6 +19,9 @@ class MessageForm extends React.Component {
     const content = document.querySelector('#content');
     this.props.sendMessage(this.props.selectedChannel, name.value, content.value);
     this.setState({ contentValue: '' }); // Reset message input
+    fetch(`https://scooter-messages.herokuapp.com/api/v1/channels/${this.props.selectedChannel}/messages` )
+    .then(response => response.json())
+    .then(data => this.props.setMessages(data.messages));
   }
 
   handleNameChange = (event) => {
@@ -52,7 +55,8 @@ class MessageForm extends React.Component {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-    { sendMessage: sendMessage },
+    { sendMessage: sendMessage,
+    setMessages: setMessages },
     dispatch
   );
 }

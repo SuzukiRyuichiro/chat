@@ -21,21 +21,30 @@ class MessageList extends React.Component {
 
   render() {
     let messageExists = (this.props.messages.length > 0);
-    console.log(messageExists);
-    if(messageExists){
+    let channelSelected = this.props.selectedChannel;
+    console.log(channelSelected);
+    if(messageExists){　// if message is there (which means channel is selected as well)
       return(
         <div className="message-list">
           <h3>{this.props.selectedChannel}</h3>
-          {this.props.messages.map(message => <Message message={message} key={message} />)}
+          {this.props.messages.map(message => <Message message={message} key={message.created_at} />)}
         </div>
       )
     } else {
-      return(
-        <div className="message-list">
-          <h3>{this.props.selectedChannel}</h3>
-          <p>There is no message in this channel</p>
-        </div>
-      )
+      if (channelSelected) { // if the selected channel has message
+        return(
+          <div className="message-list">
+            <h3>{this.props.selectedChannel}</h3>
+            <p>There is no message in this channel</p>
+          </div>
+        )
+      } else {
+        return(
+          <div className="message-list">
+            <h3>No channel selected</h3>
+          </div>
+        )
+      }
     }
   }
 }
