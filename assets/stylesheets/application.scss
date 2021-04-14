@@ -14,15 +14,17 @@ body {
 
   .right-screen {
     display: grid;
-    grid-template-rows: 1fr fit-content(30px);
+    grid-template-rows: 90vh 1fr;
     grid-column: 2/5;
-    overflow-y: scroll;
 
     .message-form {
       grid-row: 2/3;
-      margin-bottom: 10px;
+      margin-top: 10px;
     }
+
     .right-screen-inner {
+      grid-row: 1/2;
+      overflow-y: scroll;
       margin: 10px;
       padding: 10px;
       border-radius: 20px;
@@ -32,6 +34,7 @@ body {
     .channel-name{
       position: sticky;
       top: 0px;
+      background-color: #F7F7F7;
     }
 
     .message {
