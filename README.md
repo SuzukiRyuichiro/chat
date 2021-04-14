@@ -8,6 +8,6 @@ Go to [this page](https://suzukiryuichiro.github.io/chat/) and start chatting!
 This application utilizes [Message API](https://github.com/SuzukiRyuichiro/message_api).
 
 ## How to run locally
-clone the repo then
+clone the repo,
 ```yarn install```
-then listen to localhost8080
+then listen to `localhost8080`
