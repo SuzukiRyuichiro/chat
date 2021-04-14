@@ -37,7 +37,6 @@ class ChannelList extends React.Component {
 
 
   render() {
-    console.log('rerendering channellist');
     return(
       <div className="channel-list" onClick={this.handleClick}>
         {this.props.channels.map(channel => <h4 className={this.props.selectedChannel === channel.name ? 'active' : ''} key={channel.name}>{channel.name}</h4>)}
