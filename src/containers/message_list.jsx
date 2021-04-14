@@ -20,14 +20,24 @@ class MessageList extends React.Component {
   }
 
   render() {
-    return(
-      <div className="message-list">
-        <h3>{this.props.selectedChannel}</h3>
-        {this.props.messages.map(message => <Message message={message} key={message} />)}
-      </div>
-    )
+    let messageExists = (this.props.messages.length > 0);
+    console.log(messageExists);
+    if(messageExists){
+      return(
+        <div className="message-list">
+          <h3>{this.props.selectedChannel}</h3>
+          {this.props.messages.map(message => <Message message={message} key={message} />)}
+        </div>
+      )
+    } else {
+      return(
+        <div className="message-list">
+          <h3>{this.props.selectedChannel}</h3>
+          <p>There is no message in this channel</p>
+        </div>
+      )
+    }
   }
-
 }
 
 function mapReduxStateToProps(state) {
