@@ -26,7 +26,7 @@ class MessageList extends React.Component {
       return(
         <div className="message-list">
           <h3>{this.props.selectedChannel}</h3>
-          {this.props.messages.map(message => <Message message={message} key={message.created_at} />)}
+          {this.props.messages.map(message => <Message message={message} key={message.content} />)}
         </div>
       )
     } else {
