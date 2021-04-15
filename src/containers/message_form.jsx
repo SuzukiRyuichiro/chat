@@ -31,9 +31,7 @@ class MessageForm extends React.Component {
   }
 
   handleContentChange = (event) => {
-    this.setState({
-      contentValue: event.target.value
-    });
+    this.setState({contentValue: event.target.value});
   }
 
   render(){
