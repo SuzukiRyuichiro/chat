@@ -12,5 +12,5 @@ This application utilizes [Message API](https://github.com/SuzukiRyuichiro/messa
 
 ## How to run locally
 clone the repo,
-```yarn install```
+```yarn install``` then ```yarn deploy```,
 then listen to `localhost:8080`
