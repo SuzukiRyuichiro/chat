@@ -2,7 +2,8 @@ import React from 'react';
 import Message from '../components/message'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { setChannels, setSelectedChannel } from '../actions'
+import { setChannels, setSelectedChannel } from '../actions';
+import { Link } from 'react-router-dom';
 
 class ChannelList extends React.Component {
   fetchChannels = () => {
@@ -21,17 +22,10 @@ class ChannelList extends React.Component {
     clearInterval(fetchChannelsId);
   }
 
-  handleClick = (event) => {
-    event.persist();
-    // it will change the selected channel on Redux state tree on click
-    return event.target.className !== 'channel-list mt-2' ? this.props.setSelectedChannel(event.target.innerText) : this.props.setSelectedChannel(this.props.channelFromParams);
-  }
-
-
   render() {
     return(
-      <div className="channel-list mt-2" onClick={this.handleClick}>
-        {this.props.channels.map(channel => <h4 className={this.props.channelFromParams === channel.name ? 'active' : ''} key={channel.name}>{channel.name}</h4>)}
+      <div className="channel-list mt-2">
+        {this.props.channels.map(channel => <Link to={`/${channel.name}`}><h4 className={this.props.channelFromParams === channel.name ? 'active' : ''} key={channel.name}>{channel.name}</h4></Link>)}
       </div>
     )
   }
