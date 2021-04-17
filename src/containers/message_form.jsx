@@ -17,9 +17,9 @@ class MessageForm extends React.Component {
     event.preventDefault();
     const name = document.querySelector('#name');
     const content = document.querySelector('#content');
-    if(this.props.selectedChannel !== null){this.props.sendMessage(this.props.selectedChannel, name.value, content.value);}
+    if(this.props.channelFromParams !== null){this.props.sendMessage(this.props.channelFromParams, name.value, content.value);}
     this.setState({ contentValue: '' }); // Reset message input
-    fetch(`https://scooter-messages.herokuapp.com/api/v1/channels/${this.props.selectedChannel}/messages` )
+    fetch(`https://scooter-messages.herokuapp.com/api/v1/channels/${this.props.channelFromParams}/messages` )
     .then(response => response.json())
     .then(data => this.props.setMessages(data.messages));
   }
@@ -59,10 +59,5 @@ function mapDispatchToProps(dispatch) {
   );
 }
 
-function mapReduxStateToProps(state){
-  return {
-    selectedChannel: state.selectedChannel
-  }
-}
 
-export default connect(mapReduxStateToProps, mapDispatchToProps)(MessageForm);
+export default connect(null, mapDispatchToProps)(MessageForm);

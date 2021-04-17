@@ -4,21 +4,21 @@ import ChannelList from '../containers/channel_list'
 import MessageForm from '../containers/message_form'
 import ChannelForm from '../containers/channel_form'
 
-const App = () => {
+const App = (props) => {
   return (
     <div className="app">
       <div className="left-screen sticky-top">
         <div className="py-2 border-bottom">
           <h2><i className="devicon-react-original"></i> <i className="devicon-redux-original"></i> Chat</h2>
         </div>
-        <ChannelList />
+        <ChannelList channelFromParams={props.match.params.channel} />
         <ChannelForm />
       </div>
       <div className="right-screen">
         <div className="right-screen-inner">
-          <MessageList />
+          <MessageList channelFromParams={props.match.params.channel} />
         </div>
-        <MessageForm />
+        <MessageForm channelFromParams={props.match.params.channel} />
       </div>
     </div>
   );

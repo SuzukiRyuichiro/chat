@@ -25,7 +25,7 @@ class ChannelList extends React.Component {
   handleClick = (event) => {
     event.persist();
     // it will change the selected channel on Redux state tree on click
-    return event.target.className !== 'channel-list mt-2' ? this.props.setSelectedChannel(event.target.innerText) : this.props.setSelectedChannel(this.props.selectedChannel);
+    return event.target.className !== 'channel-list mt-2' ? this.props.setSelectedChannel(event.target.innerText) : this.props.setSelectedChannel(this.props.channelFromParams);
   }
 
 
@@ -33,7 +33,7 @@ class ChannelList extends React.Component {
     console.log('channel');
     return(
       <div className="channel-list mt-2" onClick={this.handleClick}>
-        {this.props.channels.map(channel => <h4 className={this.props.selectedChannel === channel.name ? 'active' : ''} key={channel.name}>{channel.name}</h4>)}
+        {this.props.channels.map(channel => <h4 className={this.props.channelFromParams === channel.name ? 'active' : ''} key={channel.name}>{channel.name}</h4>)}
       </div>
     )
   }
@@ -42,8 +42,7 @@ class ChannelList extends React.Component {
 
 function mapReduxStateToProps(state) {
   return {
-    channels: state.channels,
-    selectedChannel: state.selectedChannel
+    channels: state.channels
   };
 }
 

@@ -6,7 +6,7 @@ import { setMessages } from '../actions'
 
 class MessageList extends React.Component {
   fetchMessage = () => {
-    fetch(`https://scooter-messages.herokuapp.com/api/v1/channels/${this.props.selectedChannel}/messages` )
+    fetch(`https://scooter-messages.herokuapp.com/api/v1/channels/${this.props.channelFromParams}/messages` )
     .then(response => response.json())
     .then(data => this.props.setMessages(data.messages));
   }
@@ -22,12 +22,12 @@ class MessageList extends React.Component {
 
   render() {
     let messageExists = (this.props.messages.length > 0);
-    let channelSelected = this.props.selectedChannel;
+    let channelSelected = this.props.channelFromParams;
     if(messageExists){　// if message is there (which means channel is selected as well)
       return(
         <div className="message-list">
           <div className="channel-name">
-            <h3>{this.props.selectedChannel}</h3>
+            <h3>{this.props.channelFromParams}</h3>
           </div>
           {this.props.messages.map(message => <Message message={message} key={Math.random()} />)}
         </div>
@@ -36,8 +36,8 @@ class MessageList extends React.Component {
       if (channelSelected) { // if the selected channel has message
         return(
           <div className="message-list">
-            <h3>{this.props.selectedChannel}</h3>
-            <p>There is no message in this {this.props.selectedChannel}</p>
+            <h3>{this.props.channelFromParams}</h3>
+            <p>There is no message in this {this.props.channelFromParams}</p>
           </div>
         )
       } else {
@@ -54,8 +54,7 @@ class MessageList extends React.Component {
 
 function mapReduxStateToProps(state) {
   return {
-    messages: state.messages,
-    selectedChannel: state.selectedChannel
+    messages: state.messages
   };
 }
 
