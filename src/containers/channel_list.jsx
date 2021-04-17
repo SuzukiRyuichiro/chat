@@ -14,7 +14,6 @@ class ChannelList extends React.Component {
   componentWillMount() {
     // this will load all available channels from the API
     this.fetchChannels();
-    console.log("Component will mount");
     const fetchChannelsId = setInterval(this.fetchChannels, 1000);
   }
 
@@ -30,7 +29,6 @@ class ChannelList extends React.Component {
 
 
   render() {
-    console.log('channel');
     return(
       <div className="channel-list mt-2" onClick={this.handleClick}>
         {this.props.channels.map(channel => <h4 className={this.props.channelFromParams === channel.name ? 'active' : ''} key={channel.name}>{channel.name}</h4>)}
