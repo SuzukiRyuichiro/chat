@@ -1,8 +1,9 @@
 import React from 'react';
-import MessageList from '../containers/message_list'
-import ChannelList from '../containers/channel_list'
-import MessageForm from '../containers/message_form'
-import ChannelForm from '../containers/channel_form'
+import MessageList from '../containers/message_list';
+import EmptyMessageList from './empty_message_list';
+import ChannelList from '../containers/channel_list';
+import MessageForm from '../containers/message_form';
+import ChannelForm from '../containers/channel_form';
 
 const App = (props) => {
   return (

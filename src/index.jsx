@@ -10,6 +10,7 @@ import {
   Route,
   Redirect,
   Switch,
+  useParams
 } from "react-router-dom";
 import { createHistory as history } from "history";
 
@@ -34,7 +35,7 @@ ReactDOM.render(
     <Router history={history}>
       <Switch>
         <Route path="/:channel" component={App} />
-        <Redirect from="/" to="/Not%20Selected" />
+        <Redirect from="/" to="/general" />
       </Switch>
     </Router>
   </Provider>,
