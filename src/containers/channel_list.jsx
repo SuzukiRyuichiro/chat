@@ -2,7 +2,7 @@ import React from 'react';
 import Message from '../components/message'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { setChannels, setSelectedChannel } from '../actions';
+import { setChannels } from '../actions';
 import { Link } from 'react-router-dom';
 
 class ChannelList extends React.Component {
@@ -18,6 +18,10 @@ class ChannelList extends React.Component {
     const fetchChannelsId = setInterval(this.fetchChannels, 1000);
   }
 
+  componentDidUpdate() {
+    console.log(this.props.channelFromParams);
+  }
+
   componentWillUnmount() {
     clearInterval(fetchChannelsId);
   }
@@ -25,7 +29,7 @@ class ChannelList extends React.Component {
   render() {
     return(
       <div className="channel-list mt-2">
-        {this.props.channels.map(channel => <Link to={`/${channel.name}`}><h4 className={this.props.channelFromParams === channel.name ? 'active' : ''} key={channel.name}>{channel.name}</h4></Link>)}
+        {this.props.channels.map(channel => <Link to={`/${channel.name}`} key={channel.name}><h4 className={this.props.channelFromParams === channel.name ? 'active' : ''}>{channel.name}</h4></Link>)}
       </div>
     )
   }
@@ -40,8 +44,7 @@ function mapReduxStateToProps(state) {
 
 function mapDispatchToProps(dispatch){
   return bindActionCreators(
-    { setChannels: setChannels,
-      setSelectedChannel: setSelectedChannel },
+    { setChannels: setChannels },
     dispatch
   );
 }

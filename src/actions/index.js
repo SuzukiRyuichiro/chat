@@ -34,13 +34,6 @@ export function setChannels(channels){
   }
 }
 
-export function setSelectedChannel(channel){
-  return {
-    type: 'SET_SELECTED_CHANNEL',
-    payload: channel
-  }
-}
-
 export function createChannel(name){
   sendChannelApiRequest(name)
   return {
