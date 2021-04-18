@@ -12,7 +12,6 @@ class MessageList extends React.Component {
   }
 
   shouldComponentUpdate(nextProps){
-    console.log(this.props.messages.length !== nextProps.messages.length);
     return this.props.messages.length !== nextProps.messages.length;
   }
 
@@ -42,7 +41,7 @@ class MessageList extends React.Component {
           <div className="channel-name">
             <h3>{this.props.channelFromParams}</h3>
           </div>
-          {this.props.messages.map(message => <Message message={message} key={Math.random()} />)}
+          {this.props.messages.map(message => <Message message={message} key={message.created_at} />)}
         </div>
       )
     } else {
