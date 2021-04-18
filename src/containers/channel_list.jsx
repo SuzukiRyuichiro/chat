@@ -19,7 +19,6 @@ class ChannelList extends React.Component {
   }
 
   componentWillUnmount() {
-    debugger
     if(window.fetchChannelsId !== undefined){
       clearInterval(window.fetchChannelsId);
     }

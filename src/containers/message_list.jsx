@@ -11,9 +11,22 @@ class MessageList extends React.Component {
     .then(data => this.props.setMessages(data.messages));
   }
 
+  shouldComponentUpdate(nextProps){
+    console.log(this.props.messages.length !== nextProps.messages.length);
+    return this.props.messages.length !== nextProps.messages.length;
+  }
+
+  componentDidUpdate(){
+    setTimeout(function(){document.querySelector('.message-list').scrollIntoView({block: "end", behavior: "smooth"})}, 1500);
+  }
 
   componentWillMount() {
+    this.fetchMessage;
     window.fetchMessageId = setInterval(this.fetchMessage, 1000);
+  }
+
+  componentDidMount() {
+    setTimeout(function(){document.querySelector('.message-list').scrollIntoView({block: "end", behavior: "smooth"})}, 1500);
   }
 
   componentWillUnmount() {

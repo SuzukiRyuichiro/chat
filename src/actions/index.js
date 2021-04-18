@@ -8,7 +8,6 @@ export function setMessages(messages) {
 
 export function sendMessage(channel, author, content) {
   sendMessageApiRequest(channel, author, content);
-  setTimeout(function(){document.querySelector('.message-list').scrollIntoView({block: "end", behavior: "smooth"})}, 1500);
   return {
     type: 'SEND_MESSAGE',
     payload: { author: author, content: content, key: content }
