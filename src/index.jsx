@@ -6,7 +6,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import { logger } from "redux-logger";
 import reduxPromise from "redux-promise";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Route,
   Redirect,
   Switch,

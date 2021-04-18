@@ -1,6 +1,6 @@
 import React from 'react';
 
-class EmptyMessageList extends React.Component {
+export default class EmptyMessageList extends React.Component {
   render() {
     return(
       <div className="message-list">
@@ -10,5 +10,3 @@ class EmptyMessageList extends React.Component {
     )
   }
 }
-
-export EmptyMessageList;
