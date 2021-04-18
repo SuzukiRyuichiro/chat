@@ -13,11 +13,11 @@ class MessageList extends React.Component {
 
 
   componentWillMount() {
-    const fetchMessageId = setInterval(this.fetchMessage, 1000);
+    window.fetchMessageId = setInterval(this.fetchMessage, 1000);
   }
 
   componentWillUnmount() {
-    clearInterval(fetchMessageId);
+    clearInterval(window.fetchMessageId);
   }
 
   render() {
