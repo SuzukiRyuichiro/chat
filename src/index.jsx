@@ -35,7 +35,7 @@ ReactDOM.render(
     <Router history={history}>
       <Switch>
         <Route path="/:channel" component={App} />
-        <Redirect from="/" to="/general" />
+        <Redirect from="/" to="/No%20Channel%20Selected" />
       </Switch>
     </Router>
   </Provider>,
